@@ -1,0 +1,43 @@
+students = {}
+
+while True:
+    print("---- Student Grade Book ----")
+    print("1. Add Student")
+    print("2. View Grade")
+    print("3. Show both Highest and Lowest Grades")
+    print("4. Exit Page")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        name = input("Enter Student's Name: ")
+        grade = float(input("Enter Student's Grade: "))
+        students[name] = grade
+        print("Student successfully added!")
+        print(f"{name}: {grade}")
+
+    elif choice == "2":
+        if not students:
+            print("No students found.")
+        else:
+            name = input("Enter Student's Name: ")
+            if name in students:
+                print(f"{name}: {students[name]}")
+            else:
+                print("Student not found.")
+
+    elif choice == "3":
+        if not students:
+            print("No students found.")
+        else:
+            grades = list(students.values())
+            print(f"Highest Grade: {max(grades)}")
+            print(f"Lowest Grade: {min(grades)}")
+
+    elif choice == "4":
+        print("Exiting grade book.")
+        break
+
+    else:
+        print("Invalid choice.")
+        
